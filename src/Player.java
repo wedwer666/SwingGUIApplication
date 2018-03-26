@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -32,42 +31,40 @@ public class Player extends Obiect  {
         col();
 
     }
-    public Game.STATE col()
+    public void col()
     {
         //INAMIC PRINCIPAL ACUM ESTE tmpObiect
-        for(int i = 0; i< handler.object.size(); i++)
-        {
+        for(int i = 0; i< handler.object.size(); i++) {
             Obiect tmpObiect = handler.object.get(i);
-            if (tmpObiect.getId() == All_players.Enemy || tmpObiect.getId() == All_players.Static_enemy)
-            {
+            if (tmpObiect.getId() == All_players.Enemy || tmpObiect.getId() == All_players.Static_enemy) {
 
-                if(coliziune().intersects(tmpObiect.coliziune()))
-                {
+                if (coliziune().intersects(tmpObiect.coliziune())) {
                     //codul pentru a evita coliziunea obiectelor
-                    Life_design.LIFE -=2;
+                    Life_design.LIFE -= 2;
                     CUR_COL++;
-                    if ( CUR_COL == MAX_COL) {
+                    if (CUR_COL == MAX_COL) {
+
                         // pop up ca jocul a fost finisat
-                        Object[] options = {"Return","Exit"};
-                        int response = JOptionPane.showOptionDialog(
-                                null,
-                                "You lost the game with score 55 points!", "You lost!",
-                                JOptionPane.YES_NO_CANCEL_OPTION,
-                                JOptionPane.DEFAULT_OPTION,
-                                null,
-                                options, options[1]);
-                        if(response == 0){
-                            return Game.STATE.Menu;
-                        }else if(response == 1){
-                            System.exit(1);
-                        }else{
-                            System.out.println("Nu a fost aleasa optiunea");
-                        }
+
+//                        Object[] options = {"Return","Exit"};
+//                        int response = JOptionPane.showOptionDialog(
+//                                null,
+//                                "You lost the game with score 55 points!", "You lost!",
+//                                JOptionPane.YES_NO_CANCEL_OPTION,
+//                                JOptionPane.DEFAULT_OPTION,
+//                                null,
+//                                options, options[1]);
+//                        if(response == 0){
+//                            return Game.STATE.Menu;
+//                        }else if(response == 1){
+//                            System.exit(1);
+//                        }else{
+//                            System.out.println("Nu a fost aleasa optiunea");
+//                        }
                     }
                 }
             }
         }
-        return Game.STATE.Menu;
     }
     @Override
     public void render(Graphics g)

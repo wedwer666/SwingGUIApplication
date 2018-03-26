@@ -1,19 +1,19 @@
 import java.awt.*;
 
 public class Life_design {
-        public static int LIFE = 100;
-        private int valoarea_blue = 255;
-        private int timpul = 0;
-        private int nivel = 1;
-//        public static int CUR_COL = 100;
-        public static int MAX_COL = 55;
-        private int score = 0;
+    public static int LIFE = 100;
+    private int valoarea_blue = 255;
+    private int timpul = 0;
+    private int nivel = 1;
+    //        public static int CUR_COL = 100;
+    public static int MAX_COL = 55;
+    private int score = 0;
 
     public void set_score(int newValue)
     {
         score = newValue;
     }
-//    public void set_cur_col(int newValuecur)
+    //    public void set_cur_col(int newValuecur)
 //    {
 //        CUR_COL = newValuecur;
 //    }
@@ -54,4 +54,5 @@ public class Life_design {
 
     }
 }
+
 

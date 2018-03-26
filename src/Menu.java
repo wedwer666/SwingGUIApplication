@@ -18,10 +18,12 @@ public class Menu extends MouseAdapter {
         {
             game.gameState = Game.STATE.Game;
             handler.addObject(new Player(WIDTH / 2 - 32, (HEIGHT / 2) - 32, All_players.Player, handler));
-            for (int i = 0; i < 5; i++) {
-                handler.addObject(new Enemy(r.nextInt(WIDTH - 50), r.nextInt(HEIGHT - 50), All_players.Enemy, handler));
-                handler.addObject(new Second_enemy(r .nextInt(WIDTH), r.nextInt(HEIGHT), All_players.Second_enemy, handler));
-            }
+            handler.clearEnemys();
+//            for (int i = 0; i < 5; i++) {
+//                handler.addObject(new Enemy(r.nextInt(WIDTH - 50), r.nextInt(HEIGHT - 50), All_players.Enemy, handler));
+//                handler.addObject(new Second_enemy(r .nextInt(WIDTH), r.nextInt(HEIGHT), All_players.Second_enemy, handler));
+//            }
+
         }
         //actiunea cind se apasa pe nivel Mediu
         if ( mouse_over(mx, my, 250, 170, 300, 64))
@@ -69,6 +71,16 @@ public class Menu extends MouseAdapter {
         if (mouse_over(mx, my, 720, 10, 100, 30))
         {
             game.gameState = Game.STATE.Menu;
+        }
+        // butonul return dupa finisarea jocului
+        if (mouse_over(mx, my, 220, 350, 150, 54))
+        {
+            game.gameState = Game.STATE.Menu;
+        }
+        // atunci cind dupa finisarea jocului utilizatorul apasa exit din joc
+        if (mouse_over(mx, my, 420, 350, 150, 54))
+        {
+            System.exit(1);
         }
 
     }
@@ -183,6 +195,28 @@ public class Menu extends MouseAdapter {
             g.fillRect(320, 450, 220, 54);
             g.setColor(Color.white);
             g.drawString("Return", 380, 480);
+        }
+        else if (game.gameState == Game.STATE.END)
+        {
+            Font tmp = new Font("Times New Roman", 3, 36);
+            g.setFont(tmp);
+            g.setColor(Color.blue);
+
+            g.drawString("Ati pierdut cu scorul 55", 240, 250);
+            g.drawString("Incearca inca o data!!!", 250, 280);
+
+            g.drawRect(220, 350, 150, 54);
+            g.setColor(Color.gray);
+            g.fillRect(220, 350, 150, 54);
+            g.setColor(Color.white);
+            g.drawString("Try again", 230, 380);
+
+            g.drawRect(420, 350, 150, 54);
+            g.setColor(Color.gray);
+            g.fillRect(420, 350, 150, 54);
+            g.setColor(Color.white);
+            g.drawString("Exit", 450, 380);
+
         }
     }
 }

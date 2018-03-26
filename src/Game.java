@@ -17,9 +17,10 @@ public class Game extends Canvas implements Runnable {
         Game,
         Game2,
         Game3,
-        Info_class
+        Info_class,
+        END
     };
-    public STATE gameState = STATE.Menu;
+    public static STATE gameState = STATE.Menu;
 
     public Game() {
         handler = new Handler();
@@ -101,12 +102,17 @@ public class Game extends Canvas implements Runnable {
         if (gameState == STATE.Game) {
             handler.tick();
             life_design.tick();
+            if (Life_design.LIFE <= 0) {
+                    Life_design.LIFE = 100;
+                    handler.clearEnemys();
+                    gameState = STATE.END;
+            }
         }
-        else if (gameState == STATE.Menu ){
-         menu.tick();
-        }
+            else if (gameState == STATE.Menu || gameState == STATE.END) {
+                menu.tick();
+            }
 
-    }
+        }
 
     private void render() {
         BufferStrategy bufferStrategy = this.getBufferStrategy();
@@ -124,7 +130,8 @@ public class Game extends Canvas implements Runnable {
         if (gameState == STATE.Game) {
             life_design.render(graphics);
         }
-        else if (gameState == STATE.Menu || gameState == STATE.Game2 ){
+        else if (gameState == STATE.Menu || gameState == STATE.Game2 || gameState == STATE.END)
+        {
             menu.render(graphics);
         }
         else if (gameState == STATE.Info_class)

@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -47,22 +46,22 @@ public class Player_advanced_level extends Obiect{
                     Life_design.LIFE -=2;
                     CUR_COL3++;
                     if ( CUR_COL3 == MAX_COL) {
-                        // pop up ca jocul a fost finisat
-                        Object[] options = {"Continue","Exit"};
-                        int response = JOptionPane.showOptionDialog(
-                                null,
-                                "You lost the game with score 55 points!", "You lost!",
-                                JOptionPane.YES_NO_CANCEL_OPTION,
-                                JOptionPane.DEFAULT_OPTION,
-                                null,
-                                options, options[1]);
-                        if(response == 0){
-                            System.exit(1);
-                        }else if(response == 1){
-                            System.exit(1);
-                        }else{
-                            System.out.println("Nu a fost aleasa optiunea");
-                        }
+//                        // pop up ca jocul a fost finisat
+//                        Object[] options = {"Continue","Exit"};
+//                        int response = JOptionPane.showOptionDialog(
+//                                null,
+//                                "You lost the game with score 55 points!", "You lost!",
+//                                JOptionPane.YES_NO_CANCEL_OPTION,
+//                                JOptionPane.DEFAULT_OPTION,
+//                                null,
+//                                options, options[1]);
+//                        if(response == 0){
+//                            System.exit(1);
+//                        }else if(response == 1){
+//                            System.exit(1);
+//                        }else{
+//                            System.out.println("Nu a fost aleasa optiunea");
+//                        }
                     }
                 }
             }
